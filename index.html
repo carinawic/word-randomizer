@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vertical Reel Spinner</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Link to your CSS file -->
+  </head>
+  <body>
+    <div class="spinner-wrapper">
+      <div class="reel-container">
+        <div class="reel">
+          <div class="item">Mountain</div>
+          <div class="item">River</div>
+          <div class="item">Forest</div>
+          <div class="item">Ocean</div>
+          <div class="item">Desert</div>
+          <div class="item">City</div>
+          <div class="item">Village</div>
+          <div class="item">Sky</div>
+          <div class="item">Valley</div>
+          <div class="item">Island</div>
+          <div class="item">Mountain</div>
+          <div class="item">River</div>
+          <div class="item">Forest</div>
+          <div class="item">Ocean</div>
+          <div class="item">Desert</div>
+          <div class="item">City</div>
+          <div class="item">Village</div>
+          <div class="item">Sky</div>
+          <div class="item">Valley</div>
+          <div class="item">Island</div>
+          <div class="item">Mountain</div>
+          <div class="item">River</div>
+          <div class="item">Forest</div>
+          <div class="item">Ocean</div>
+          <div class="item">Desert</div>
+          <div class="item">City</div>
+          <div class="item">Village</div>
+          <div class="item">Sky</div>
+          <div class="item">Valley</div>
+          <div class="item">Island</div>
+          <div class="item">Mountain</div>
+          <div class="item">River</div>
+          <div class="item">Forest</div>
+          <div class="item">Ocean</div>
+          <div class="item">Desert</div>
+          <div class="item">City</div>
+          <div class="item">Village</div>
+          <div class="item">Sky</div>
+          <div class="item">Valley</div>
+          <div class="item">Island</div>
+        </div>
+      </div>
+
+      <div class="gif-wrapper">
+        <img
+          id="clickableGif"
+          src="lever_frame.jpg"
+          alt="GIF"
+          style="cursor: pointer"
+        />
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("clickableGif")
+        .addEventListener("click", function () {
+          const gifElement = document.getElementById("clickableGif");
+          gifElement.src = "lever.gif"; // Set the GIF source
+
+          // Determine the duration of the GIF (in milliseconds)
+          const gifDuration = 4000; // Replace 3000 with the actual duration of the GIF in ms
+
+          // After the GIF plays once, switch back to the still image
+          setTimeout(function () {
+            gifElement.src = "lever_frame.jpg"; // Switch back to still image
+          }, gifDuration);
+        });
+    </script>
+
+    <script src="script.js"></script>
+    <!-- Link to your JavaScript file -->
+  </body>
+</html>

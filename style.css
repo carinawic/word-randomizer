@@ -1,0 +1,43 @@
+.reel-container {
+  width: 200px;
+  height: 50px; /* This height will make sure one word is always visible */
+  overflow: hidden;
+  position: relative;
+  border: 2px solid #333;
+  margin: 100px auto 20px; /* Increased top margin to move the box down */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reel {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.5s ease-out; /* Smooth transition */
+}
+
+.item {
+  text-align: center;
+  font-size: 16px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* GIF wrapper next to the reel container */
+.gif-wrapper {
+  margin: 20px auto; /* Center the GIF horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px; /* Width of the GIF to align properly */
+}
+
+/* Larger GIF/image size, 200px by 200px */
+.gif-wrapper img {
+  width: 200px; /* Adjust width of the GIF */
+  height: 200px; /* Adjust height of the GIF */
+  object-fit: cover; /* Ensure the image scales without distortion */
+  cursor: pointer; /* Show pointer cursor on hover */
+}
