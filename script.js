@@ -1,33 +1,129 @@
+const items_list = [
+  "Sprint",
+  "Backlog",
+  "Kanban",
+  "Scrum",
+  "Epic",
+  "Retrospective",
+  "Iteration",
+  "Release",
+  "Refactor",
+  "Test",
+  "Pair Programming",
+  "TDD (Test-Driven Development)",
+  "Increment",
+  "DevOps",
+  "Pipeline",
+  "Automation",
+  "Integration",
+  "Deployment",
+  "Feature Flag",
+  "Pull Request",
+  "Code Review",
+  "Git",
+  "Branch",
+  "Merge",
+  "Repository",
+  "Docker",
+  "Microservices",
+  "DDD (domain driven design)",
+  "API",
+  "REST",
+  "Cloud",
+  "Azure Function",
+  "Key Vault",
+  "Database",
+  "YAML",
+  "Pipeline",
+  "Network",
+  "Load Balancer",
+  "JWT (JSON Web Token)",
+  "Subscription",
+  "Tenant",
+  "Queue",
+  "Computer",
+  "Keyboard",
+  "Mouse",
+  "Monitor",
+  "Code",
+  "Software",
+  "Hardware",
+  "Algorithm",
+  "Function",
+  "Variable",
+  "Loop",
+  "Array",
+  "Class",
+  "Object",
+  "Compile",
+  "Execute",
+  "CPU",
+  "RAM",
+  "Storage",
+  "Binary",
+  "Protocol",
+  "Server",
+  "Client",
+  "DNS",
+  "IP Address",
+  "Operating System",
+  "File",
+  "Folder",
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "Encryption",
+  "Firewall",
+  "Router",
+  "Debugger",
+  "Text Editor",
+  "Compiler",
+  "Syntax",
+  "GitHub",
+  "Terminal",
+  "Web Browser",
+  "Cache",
+  "Byte",
+  "Library",
+];
+
+const reel_by_id = document.getElementById("reel");
+
+items_list.forEach((item) => {
+  const div = document.createElement("div");
+  div.classList.add("item");
+  div.textContent = item;
+  reel_by_id.appendChild(div);
+});
+
 const reel = document.querySelector(".reel");
 const items = document.querySelectorAll(".item");
-const itemHeight = items[0].clientHeight; // Height of each item
+const itemHeight = items[0].clientHeight;
 const totalItems = items.length;
 
 let currentPosition = 0;
-let speed = 40; // Starting speed
-const minSpeed = 1; // The low speed to maintain until the item is centered
-let hasReachedMinSpeed = false; // Flag to indicate minSpeed has been reached
-let isSpinning = false; // Start with spinning disabled
-let isSlowingDown = false; // Variable to indicate the reel is slowing down
+let speed = 40;
+const minSpeed = 1;
+let hasReachedMinSpeed = false;
+let isSpinning = false;
+let isSlowingDown = false;
 
-// Expand the list by duplicating it multiple times for a smoother scrolling effect
 function expandList() {
   const reelHTML = reel.innerHTML;
   // Repeat the list 3 times for a longer, seamless scroll
   reel.innerHTML = reelHTML.repeat(3);
 }
 
-// Call the function to expand the list before starting the animation
 expandList();
 
 function resetReel() {
   currentPosition = 0;
-  speed = 40; // Reset starting speed
+  speed = 40;
   hasReachedMinSpeed = false;
-  isSpinning = true; // Enable spinning again
-  isSlowingDown = false; // Reset the slowing down process
-  targetIndex = Math.floor(Math.random() * totalItems); // Set a new random target item
-  spinReel(); // Start spinning
+  isSpinning = true;
+  isSlowingDown = false;
+  targetIndex = Math.floor(Math.random() * totalItems);
+  spinReel();
 }
 
 function spinReel() {
@@ -35,8 +131,6 @@ function spinReel() {
 
   // Move the reel upwards
   currentPosition += speed;
-
-  // Update the reel's position
   reel.style.transform = `translateY(-${currentPosition}px)`;
 
   // Start slowing down when near the target
@@ -78,15 +172,11 @@ const gifElement = document.getElementById("clickableGif");
 gifElement.addEventListener("click", function () {
   isSpinning = true; // Enable spinning
   gifElement.src = "lever.gif"; // Restart the GIF by setting the src again
-
-  // Immediately start the reel spinning
   resetReel();
 
-  // Duration of the GIF in milliseconds (optional if you want to reset the image later)
-  const gifDuration = 3000; // Set to the actual length of your GIF
+  const gifDuration = 3000;
 
-  // After the GIF plays once, switch back to the still image (optional)
   setTimeout(function () {
-    gifElement.src = "lever_frame.jpg"; // Reset to still image after the GIF finishes
+    gifElement.src = "lever_frame.jpg";
   }, gifDuration);
 });
